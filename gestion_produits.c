@@ -8,8 +8,8 @@ Prod saise_new_prod()
     Prod p;
     printf("introduire le nom du produit :");
     scanf("%s",p.nom);
-    p.nom[40]='\0'; // on ajouter \0 pour la fin de la chaine de caratÃ¨re
-    //Saisie de la deuxiÃ¨me partie du produit : le prix
+    p.nom[40]='\0'; // on ajouter \0 pour la fin de la chaine de caratère
+    //Saisie de la deuxième partie du produit : le prix
     printf("introduire le prix du produit :");
     scanf("%f",&p.prix);
 
@@ -25,11 +25,11 @@ void saisie_liste_produit(int nb, Prod TABPROD[])
 
     for(i=0; i<nb; i++)
     {
-        //Saisie de la premiÃ¨re partie du produit : le nom
+        //Saisie de la première partie du produit : le nom
         printf("introduire le nom du produit :");
         scanf("%s",TABPROD[i].nom);
-        TABPROD[i].nom[40]='\0'; // on ajouter \0 pour la fin de la chaine de caratÃ¨re
-        //Saisie de la deuxiÃ¨me partie du produit : le prix
+        TABPROD[i].nom[40]='\0'; // on ajouter \0 pour la fin de la chaine de caratère
+        //Saisie de la deuxième partie du produit : le prix
         printf("introduire le prix du produit :");
         scanf("%f",&TABPROD[i].prix);
     }
@@ -70,7 +70,7 @@ void tri_liste_produit_prix(int N, Prod TABPROD[])
     int i;
     int j;
     /********************************************************/
-    /**Trie Ã  Bull du tableau**/
+    /**Trie à Bull du tableau**/
     /********************************************************/
     for (i=0; i<N-1; i++)
     {
@@ -107,13 +107,13 @@ Retourne 1 ou 0 selon le resultat de l'insertion
 */
 int insert_nouveau_produit(int nb, Prod TABPROD[], Prod produitToInert)
 {
-    int res = 0; // le rÃ©sultat est par dÃ©faut = 0
+    int res = 0; // le résultat est par défaut = 0
 
-    if(nb<MAX_SIZE_TAB)  // si le tableau n'est pas complÃ¨tement remplis
+    if(nb<MAX_SIZE_TAB)  // si le tableau n'est pas complètement remplis
     {
-        TABPROD[nb].prix= produitToInert.prix; // on insert le produit Ã  la fin du tableau
-        strcpy(TABPROD[nb].nom, produitToInert.nom); // on insert le produit Ã  la fin du tableau
-        res = 1; // l'insertion s'est bien passÃ©e du coup on renvoi 1
+        TABPROD[nb].prix= produitToInert.prix; // on insert le produit à la fin du tableau
+        strcpy(TABPROD[nb].nom, produitToInert.nom); // on insert le produit à la fin du tableau
+        res = 1; // l'insertion s'est bien passée du coup on renvoi 1
     }
     return (res);
 }
@@ -140,18 +140,18 @@ int recherche_produit_into_list_produit(int N, Prod TABDPROD[], Prod produitToFi
 }
 
 /**
-Fonction de chargement d'un tableau de structure Ã  partir
+Fonction de chargement d'un tableau de structure à partir
 d'un fichier text
 */
 
 void load_liste_produit_from_file(int *nb, Prod TABPROD[], char* file_path)
 {
-    /**DÃ©claration des variable*/
+    /**Déclaration des variable*/
     FILE* fp_read = NULL;
     int i = 0;
     char ligne[100];
     char c;
-    /**Ecriture strcuturÃ©e*/
+    /**Ecriture strcuturée*/
     fp_read= fopen(file_path,"r");/**r:read ; w: write ; a : append*/
     if(!fp_read)
     {
@@ -196,29 +196,29 @@ Load liste produit from DB
     if(mysql_real_connect(mysql,"127.0.0.1" ,"root","",nom_bd_to_load,0,NULL,0))
     //if(mysql_real_connect(&mysql,"192.168.43.208","root","","tp1_cinema",0,NULL,0))
     {
-        //RequÃªte qui sÃ©lectionne tout dans ma table scores
+        //Requête qui sélectionne tout dans ma table scores
         mysql_query(mysql, "SELECT * FROM Produit ORDER BY nom");
-        //DÃ©claration des pointeurs de structure
+        //Déclaration des pointeurs de structure
         MYSQL_RES *result = NULL;
         MYSQL_ROW row;
         unsigned int i = 0;
         unsigned int num_champs = 0;
         int j = 1;
-        //On met le jeu de rÃ©sultat dans le pointeur result
+        //On met le jeu de résultat dans le pointeur result
         result = mysql_use_result(mysql);
-        //On rÃ©cupÃ¨re le nombre de champs
+        //On récupère le nombre de champs
         num_champs = mysql_num_fields(result);
         //on stock les valeurs de la ligne choisie
         while ((row = mysql_fetch_row(result)))
         {
-            //On dÃ©clare un pointeur long non signÃ© pour y stocker la taille des valeurs
+            //On déclare un pointeur long non signé pour y stocker la taille des valeurs
             unsigned long *lengths;
             //On stocke ces tailles dans le pointeur
             lengths = mysql_fetch_lengths(result);
 
             //On fait une boucle pour avoir la valeur de chaque champs
-            strcpy(tabProd[j-1].nom, row[2]);    //la troisÃ¨me colonne de l'uplet
-            tabProd[j-1].prix = (float)atoi(row[3]); //la quatriÃ¨me colonne de l'uplet
+            strcpy(tabProd[j-1].nom, row[2]);    //la troisème colonne de l'uplet
+            tabProd[j-1].prix = (float)atoi(row[3]); //la quatrième colonne de l'uplet
             printf("** Tab : prix %f nom %s ",tabProd[j-1].prix, tabProd[j-1].nom);
 
             //On affiche la position du produit
@@ -230,16 +230,16 @@ Load liste produit from DB
                 printf("%.*s ", (int) lengths[i], row[i] ? row[i] : "NULL");
             }
             printf("\n");
-            //On incrÃ©mente la position du joueur
+            //On incrémente la position du joueur
             j++;
         }
         *N=j-1;
-        //LibÃ©ration du jeu de rÃ©sultat
+        //Libération du jeu de résultat
         mysql_free_result(result);
     }
     else
     {
-        printf("Une erreur s'est produite lors de la connexion Ã  la BDD: %s", mysql_error(mysql));
+        printf("Une erreur s'est produite lors de la connexion à la BDD: %s", mysql_error(mysql));
     }*/
 //}
 
@@ -250,7 +250,7 @@ Load liste produit from DB
 
          mysql_options(mysql,MYSQL_OPT_WRITE_TIMEOUT,"option");
     if(mysql_real_connect(mysql, "127.0.0.1" , "root", "", nom_bd_to_save, 0, NULL, 0) == NULL) {
-        printf("Une erreur s'est produite lors de la connexion Ã  la BDD: %s", nom_bd_to_save);
+        printf("Une erreur s'est produite lors de la connexion à la BDD: %s", nom_bd_to_save);
         return;
     }
     while (i < N) {

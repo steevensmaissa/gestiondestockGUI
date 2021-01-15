@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1610444443 source:c:\users\sadda\desktop\developpement web\gestionstockgui\main.c
+1610721114 source:c:\users\sadda\desktop\developpement web\gestionstockgui\main.c
 	<stdio.h>
 	<allegro.h>
 	<time.h>
@@ -830,10 +830,10 @@
 
 1585647522 c:\basedeprog\projetc\api_mysql\mysql\my_alloc.h
 
-1610406181 source:c:\users\sadda\desktop\developpement web\gestionstockgui\gestion_produits.c
+1610717046 source:c:\users\sadda\desktop\developpement web\gestionstockgui\gestion_produits.c
 	"gestion_produits.h"
 
-1610067640 c:\users\sadda\desktop\developpement web\gestionstockgui\gestion_produits.h
+1610717915 c:\users\sadda\desktop\developpement web\gestionstockgui\gestion_produits.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

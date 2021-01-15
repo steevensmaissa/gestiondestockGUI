@@ -122,20 +122,20 @@ int main(int argc, char *argv[])
         }
 
 
-        if ( (mouse_b&1 || mouse_b&2) && mouse_y<=79 && mouse_x<=310 && mouse_x>170)
+        if ( (mouse_b&1 || mouse_b&2) && mouse_y<=79 && mouse_y>40 && mouse_x<=310 && mouse_x>170)
         {
 
             affiche_liste_produit(N,tabProd);
         }
 
-        else if ( (mouse_b&1 || mouse_b&2) && mouse_y<=119 && mouse_x<=310 && mouse_x>170 && mouse_y>=80)
+         if ( (mouse_b&1 || mouse_b&2) && mouse_y<=119 && mouse_x<=310 && mouse_x>170 && mouse_y>=80)
         {
             printf("Saisir le nom du fichier : ");
             scanf("%s",nom_file_to_load);
             load_liste_produit_from_file(&N,tabProd,nom_file_to_load);
         }
 
-        else if ( (mouse_b&1 || mouse_b&2) && mouse_y<=198 && mouse_x<=310 && mouse_x>170)
+         if ( (mouse_b&1 || mouse_b&2) && mouse_y<=198 && mouse_y >=158 && mouse_x<=310 && mouse_x>170)
         {
             p = saise_new_prod();
             if(recherche_produit_into_list_produit(N, tabProd,p)==-1)
@@ -148,17 +148,17 @@ int main(int argc, char *argv[])
             }
         }
 
-        else if ( (mouse_b&1 || mouse_b&2) && mouse_y<=239 && mouse_x<=310 && mouse_x>170)
+        if ( (mouse_b&1 || mouse_b&2) && mouse_y<=240 && mouse_y>200 && mouse_x<=310 && mouse_x>170)
         {
             tri_liste_produit_nom(N, tabProd);
         }
 
-        else if ( (mouse_b&1 || mouse_b&2) && mouse_y<=239 && mouse_x<=310 && mouse_x>170)
+         if ( (mouse_b&1 || mouse_b&2) && mouse_y<=280 && mouse_y>239 && mouse_x<=310 && mouse_x>170)
         {
             tri_liste_produit_prix(N,tabProd);
         }
 
-        else if ( (mouse_b&1 || mouse_b&2) && mouse_y<=319 && mouse_x<=310 && mouse_x>170)
+        if ( (mouse_b&1 || mouse_b&2) && mouse_y>281 && mouse_y<=320 && mouse_x<=310 && mouse_x>170)
         {
             p = saise_new_prod();
             if(insert_nouveau_produit(N,tabProd,p))
@@ -166,22 +166,13 @@ int main(int argc, char *argv[])
                 N++;
             }
         }
-        else if ( (mouse_b&1 || mouse_b&2) && mouse_y<=362 && mouse_x<=310 && mouse_x>170)
+        if ( (mouse_b&1 || mouse_b&2) && mouse_y<=362 && mouse_y>321 && mouse_x<=310 && mouse_x>170)
         {
             printf("Saisir le nom du fichier : ");
             scanf("%s",nom_file_to_save);
-
             save_liste_produit_into_file(N,tabProd,nom_file_to_save);
 
         }
-
-
-        else
-        {
-             if (mouse_b & 4) // mileu : fin du programme
-            fin=1;
-        }
-
 
     }
     return 0;
